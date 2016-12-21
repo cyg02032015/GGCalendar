@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8EF0E2B1E0AC83800B81F3C /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EF0E2A1E0AC83800B81F3C /* DaysModel.swift */; };
 		E4F297791E08FCB60003D6EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F297781E08FCB60003D6EB /* AppDelegate.swift */; };
 		E4F2977B1E08FCB60003D6EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2977A1E08FCB60003D6EB /* ViewController.swift */; };
 		E4F2977E1E08FCB60003D6EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F2977C1E08FCB60003D6EB /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D8EF0E2A1E0AC83800B81F3C /* DaysModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
 		E4F297751E08FCB60003D6EB /* GGCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F297781E08FCB60003D6EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F2977A1E08FCB60003D6EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +31,7 @@
 		E4F2977F1E08FCB60003D6EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4F297821E08FCB60003D6EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4F297841E08FCB60003D6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4F2978B1E08FCF20003D6EB /* GGCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGCalendarViewController.swift; sourceTree = "<group>"; };
+		E4F2978B1E08FCF20003D6EB /* GGCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GGCalendarViewController.swift; path = GGCalendar/GGCalendarViewController.swift; sourceTree = "<group>"; };
 		E4F2978D1E0913830003D6EB /* GGCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		E4F2978F1E0917B40003D6EB /* GGCalendarConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGCalendarConfig.swift; sourceTree = "<group>"; };
 		E4F297911E0A63F30003D6EB /* GGCalendarTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGCalendarTool.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				E4F297781E08FCB60003D6EB /* AppDelegate.swift */,
 				E4F2977A1E08FCB60003D6EB /* ViewController.swift */,
+				E4F2978B1E08FCF20003D6EB /* GGCalendarViewController.swift */,
 				E4F2978A1E08FCCD0003D6EB /* GGCalendar */,
 				E4F2977C1E08FCB60003D6EB /* Main.storyboard */,
 				E4F2977F1E08FCB60003D6EB /* Assets.xcassets */,
@@ -84,11 +87,11 @@
 			children = (
 				E4F2978F1E0917B40003D6EB /* GGCalendarConfig.swift */,
 				E4F297911E0A63F30003D6EB /* GGCalendarTool.swift */,
-				E4F2978B1E08FCF20003D6EB /* GGCalendarViewController.swift */,
 				E4F2978D1E0913830003D6EB /* GGCollectionViewFlowLayout.swift */,
-				E4F297931E0A8E420003D6EB /* GGCalendarView.swift */,
 				E4F297951E0A8ED50003D6EB /* GGCalendarCollectionCell.swift */,
 				E4F297971E0A93780003D6EB /* GGCalendarWeekdayView.swift */,
+				D8EF0E2A1E0AC83800B81F3C /* DaysModel.swift */,
+				E4F297931E0A8E420003D6EB /* GGCalendarView.swift */,
 			);
 			path = GGCalendar;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				E4F2977B1E08FCB60003D6EB /* ViewController.swift in Sources */,
 				E4F2978C1E08FCF20003D6EB /* GGCalendarViewController.swift in Sources */,
 				E4F297921E0A63F30003D6EB /* GGCalendarTool.swift in Sources */,
+				D8EF0E2B1E0AC83800B81F3C /* DaysModel.swift in Sources */,
 				E4F297961E0A8ED50003D6EB /* GGCalendarCollectionCell.swift in Sources */,
 				E4F297901E0917B40003D6EB /* GGCalendarConfig.swift in Sources */,
 				E4F297791E08FCB60003D6EB /* AppDelegate.swift in Sources */,

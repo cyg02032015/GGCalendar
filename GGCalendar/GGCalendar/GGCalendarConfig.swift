@@ -16,3 +16,6 @@ public func GGLog<T>(message : T, file : String = #file, lineNumber : Int = #lin
 }
 
 let kCalendarUnitYMD = Set(arrayLiteral: Calendar.Component.year, Calendar.Component.month, Calendar.Component.day)
+
+var SCREEN_WIDTH: CGFloat = 0.0
+var SCREEN_HEIGHT: CGFloat = 0.0

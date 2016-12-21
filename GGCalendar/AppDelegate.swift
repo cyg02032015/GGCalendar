@@ -15,8 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.rotate), name: .UIDeviceOrientationDidChange, object: nil)
         return true
+    }
+    
+    func rotate() {
+        SCREEN_WIDTH = UIScreen.main.bounds.width
+        SCREEN_HEIGHT = UIScreen.main.bounds.height
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            // 横屏
+            GGLog(message: UIScreen.main.bounds.size)
+        }
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            // 竖屏
+            GGLog(message: "portrait = \(UIScreen.main.bounds.size)")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -40,7 +53,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
