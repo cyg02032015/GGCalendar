@@ -8,6 +8,11 @@
 
 import UIKit
 
-class GGCalendarConfig: NSObject {
-
+public func GGLog<T>(message : T, file : String = #file, lineNumber : Int = #line) {
+    #if DEBUG
+        let fileName = (file as NSString).lastPathComponent
+        print("[\(fileName):line:\(lineNumber)]- \(message)")
+    #endif
 }
+
+let kCalendarUnitYMD = Set(arrayLiteral: Calendar.Component.year, Calendar.Component.month, Calendar.Component.day)
