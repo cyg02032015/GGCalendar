@@ -110,4 +110,51 @@ class GGCalendarTool: NSObject {
         guard let date = self.calendar.date(from: components) else { fatalError("DateFromDatecomponents return nil") }
         return date
     }
+    
+    class func calculateDays(month: Int, year: Int, showPaddingDays: Bool) -> [DaysModel] {
+        var arr = [DaysModel]()
+        let totalDays = GGCalendarTool.daysIn(month: month, ofYear: year)
+        let paddingDays = GGCalendarTool.weekInFirstDay(month: month, ofYear: year) - 1
+        let paddingYear = month == 1 ? year - 1 : year
+        let paddingMonth = month == 1 ? 12 : month - 1
+        let totalDaysInLastMonth = GGCalendarTool.daysIn(month: paddingMonth, ofYear: paddingYear)
+        for i in (0..<paddingDays).reversed() {
+            let day = totalDaysInLastMonth - i
+            var days = DaysModel()
+            days.year = "\(year)"
+            days.month = "\(month)"
+            days.day = showPaddingDays ? "\(day)" : ""
+            days.monthType = .LastMonth
+            arr.append(days)
+        }
+        // 这个月日期
+        for day in 1...totalDays {
+            var days = DaysModel()
+            days.year = "\(year)"
+            days.month = "\(month)"
+            days.day = "\(day)"
+            days.monthType = .ThisMonth
+            arr.append(days)
+        }
+        for day in 1...(42-arr.count) {
+            var days = DaysModel()
+            days.year = "\(year)"
+            days.month = "\(month)"
+            days.day = showPaddingDays ? "\(day)" : ""
+            days.monthType = .NextMonth
+            arr.append(days)
+        }
+        return arr
+    }
+    
+    /// 判断是否是今天
+    class func isToday(components: DateComponents) -> Bool {
+        let date = Date()
+        let todayComponents = self.dateComponentsFromDate(date: date)
+        if todayComponents.day == components.day && todayComponents.month == components.month && todayComponents.year == components.year {
+            return true
+        } else {
+            return false
+        }
+    }
 }

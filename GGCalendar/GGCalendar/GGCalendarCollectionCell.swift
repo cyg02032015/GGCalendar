@@ -33,6 +33,15 @@ class GGCalendarCollectionCell: UICollectionViewCell {
         case .ThisMonth: self.dayLabel.textColor = .black
         case .NextMonth: self.dayLabel.textColor = .gray
         }
+        var componens = DateComponents()
+        componens.day = Int(item.day)
+        componens.month = Int(item.month)
+        componens.year = Int(item.year)
+        if GGCalendarTool.isToday(components: componens) {
+            dayLabel.backgroundColor = .gray
+        } else {
+            dayLabel.backgroundColor = .white
+        }
     }
     
     override init(frame: CGRect) {

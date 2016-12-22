@@ -15,6 +15,8 @@ enum MonthType {
 }
 
 struct DaysModel {
+    var year: String!
+    var month: String!
     var day: String!
     var monthType: MonthType = MonthType.ThisMonth
 }

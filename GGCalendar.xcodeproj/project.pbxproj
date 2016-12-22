@@ -20,6 +20,7 @@
 		E4F297941E0A8E420003D6EB /* GGCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F297931E0A8E420003D6EB /* GGCalendarView.swift */; };
 		E4F297961E0A8ED50003D6EB /* GGCalendarCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F297951E0A8ED50003D6EB /* GGCalendarCollectionCell.swift */; };
 		E4F297981E0A93780003D6EB /* GGCalendarWeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F297971E0A93780003D6EB /* GGCalendarWeekdayView.swift */; };
+		E4F2979A1E0B82F20003D6EB /* GGTopCalendarBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F297991E0B82F20003D6EB /* GGTopCalendarBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E4F297931E0A8E420003D6EB /* GGCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGCalendarView.swift; sourceTree = "<group>"; };
 		E4F297951E0A8ED50003D6EB /* GGCalendarCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGCalendarCollectionCell.swift; sourceTree = "<group>"; };
 		E4F297971E0A93780003D6EB /* GGCalendarWeekdayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGCalendarWeekdayView.swift; sourceTree = "<group>"; };
+		E4F297991E0B82F20003D6EB /* GGTopCalendarBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGTopCalendarBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				E4F2978D1E0913830003D6EB /* GGCollectionViewFlowLayout.swift */,
 				E4F297951E0A8ED50003D6EB /* GGCalendarCollectionCell.swift */,
 				E4F297971E0A93780003D6EB /* GGCalendarWeekdayView.swift */,
+				E4F297991E0B82F20003D6EB /* GGTopCalendarBar.swift */,
 				D8EF0E2A1E0AC83800B81F3C /* DaysModel.swift */,
 				E4F297931E0A8E420003D6EB /* GGCalendarView.swift */,
 			);
@@ -172,6 +175,7 @@
 				E4F297941E0A8E420003D6EB /* GGCalendarView.swift in Sources */,
 				E4F2978E1E0913830003D6EB /* GGCollectionViewFlowLayout.swift in Sources */,
 				E4F297981E0A93780003D6EB /* GGCalendarWeekdayView.swift in Sources */,
+				E4F2979A1E0B82F20003D6EB /* GGTopCalendarBar.swift in Sources */,
 				E4F2977B1E08FCB60003D6EB /* ViewController.swift in Sources */,
 				E4F2978C1E08FCF20003D6EB /* GGCalendarViewController.swift in Sources */,
 				E4F297921E0A63F30003D6EB /* GGCalendarTool.swift in Sources */,

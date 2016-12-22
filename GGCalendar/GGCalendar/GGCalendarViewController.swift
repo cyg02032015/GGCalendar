@@ -18,6 +18,8 @@ class GGCalendarViewController: UIViewController {
     }
     
     func configViewInit() {
+        // 偏移问题
+        self.automaticallyAdjustsScrollViewInsets = false
         let v = GGCalendarView(frame: .zero)
         self.view.addSubview(v)
         self.v = v
