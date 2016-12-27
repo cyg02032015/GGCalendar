@@ -13,6 +13,9 @@ let GGCalendarWeekdayViewId = "GGCalendarWeekdayViewId"
 class GGCalendarView: UIView {
     
     var showPaddingDays: Bool = true
+    var selectIndicatorView: GGIndicatorView!
+    var todayIndicatorView: GGIndicatorView!
+    
     lazy var visibleYear: Int = {
         let date = Date()
         let components = GGCalendarTool.dateComponentsFromDate(date: date)
@@ -37,6 +40,7 @@ class GGCalendarView: UIView {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .clear
         cv.dataSource = self
         cv.delegate = self
         cv.register(GGCalendarCollectionCell.self, forCellWithReuseIdentifier: CalendarCollectionCellId)
@@ -59,12 +63,25 @@ class GGCalendarView: UIView {
         self.addConstraint(NSLayoutConstraint(item: self.calendarBar, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: self.calendarBar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
         
+        
         addSubview(self.collectionView)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.addConstraint(NSLayoutConstraint(item: self.collectionView, attribute: .top, relatedBy: .equal, toItem: self.calendarBar, attribute: .bottom, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: self.collectionView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: self.collectionView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: self.collectionView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+        
+        self.selectIndicatorView = GGIndicatorView()
+        self.selectIndicatorView.color = .red
+        self.collectionView.insertSubview(self.selectIndicatorView, belowSubview: self.collectionView)
+        self.selectIndicatorView.isHidden = true
+        self.selectIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.todayIndicatorView = GGIndicatorView()
+        self.todayIndicatorView.color = .gray
+        self.collectionView.insertSubview(self.todayIndicatorView, belowSubview: self.collectionView)
+        self.todayIndicatorView.isHidden = true
+        self.todayIndicatorView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override init(frame: CGRect) {
@@ -105,8 +122,44 @@ extension GGCalendarView: GGTopCalendarProtocol {
         }
         calendarBar.title.text = "\(self.visibleYear)年\(self.visibleMonth)月"
     }
+}
 
-    
+extension GGCalendarView {
+    func indicatorViewConfig(day: Int, month: Int, year: Int, view: UICollectionView, cell: GGCalendarCollectionCell) {
+        var componens = DateComponents()
+        componens.day = day
+        componens.month = month
+        componens.year = year
+        
+        if GGCalendarTool.isToday(components: componens) {
+            if self.todayIndicatorView.isHidden {
+                self.todayIndicatorView.isHidden = false
+                self.todayIndicatorView.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.todayIndicatorView.transform = CGAffineTransform.identity
+                })
+            }
+            self.configAutolayoutWithIndicator(indicator: self.todayIndicatorView, toView: view, cell: cell)
+        }
+    }
+}
+
+extension GGCalendarView {
+    func configAutolayoutWithIndicator(indicator: GGIndicatorView, toView: UICollectionView, cell: GGCalendarCollectionCell) {
+        for obj in self.constraints {
+            if obj.firstItem as! NSObject == indicator && indicator.isHidden == true {
+                GGLog(message: "obj.firstItem = \(obj.firstItem)")
+                self.removeConstraint(obj)
+            }
+        }
+        let frame = self.convert(cell.frame, from: self)
+        GGLog(message: "frame = \(frame)")
+        let origin = CGPoint(x: 118.333, y: 200)
+        self.addConstraint(NSLayoutConstraint(item: indicator, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: frame.origin.x))
+        self.addConstraint(NSLayoutConstraint(item: indicator, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: frame.origin.y))
+        indicator.addConstraint(NSLayoutConstraint(item: indicator, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: frame.size.width))
+        indicator.addConstraint(NSLayoutConstraint(item: indicator, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: frame.size.height))
+    }
 }
 
 // MARK: -UICollectionViewDelegate,UICollectionViewDataSource
@@ -124,10 +177,13 @@ extension GGCalendarView: UICollectionViewDelegate, UICollectionViewDataSource, 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionCellId, for: indexPath) as! GGCalendarCollectionCell
         let item = daysArr[indexPath.item]
         cell.bindData(item: item)
+        indicatorViewConfig(day: Int(item.day)!, month: Int(item.month)!, year: Int(item.year)!, view: collectionView, cell:cell)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! GGCalendarCollectionCell
+        GGLog(message: "cell.frame = \(cell.frame)")
         let item = daysArr[indexPath.item]
         GGLog(message: "\(item.year!)年\(item.month!)月\(item.day!)日")
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D8EF0E2B1E0AC83800B81F3C /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EF0E2A1E0AC83800B81F3C /* DaysModel.swift */; };
+		E4686A311E10C35A008125AF /* GGIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4686A301E10C35A008125AF /* GGIndicatorView.swift */; };
 		E4F297791E08FCB60003D6EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F297781E08FCB60003D6EB /* AppDelegate.swift */; };
 		E4F2977B1E08FCB60003D6EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2977A1E08FCB60003D6EB /* ViewController.swift */; };
 		E4F2977E1E08FCB60003D6EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F2977C1E08FCB60003D6EB /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		D8EF0E2A1E0AC83800B81F3C /* DaysModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
+		E4686A301E10C35A008125AF /* GGIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGIndicatorView.swift; sourceTree = "<group>"; };
 		E4F297751E08FCB60003D6EB /* GGCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F297781E08FCB60003D6EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F2977A1E08FCB60003D6EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				E4F297971E0A93780003D6EB /* GGCalendarWeekdayView.swift */,
 				E4F297991E0B82F20003D6EB /* GGTopCalendarBar.swift */,
 				D8EF0E2A1E0AC83800B81F3C /* DaysModel.swift */,
+				E4686A301E10C35A008125AF /* GGIndicatorView.swift */,
 				E4F297931E0A8E420003D6EB /* GGCalendarView.swift */,
 			);
 			path = GGCalendar;
@@ -174,6 +177,7 @@
 			files = (
 				E4F297941E0A8E420003D6EB /* GGCalendarView.swift in Sources */,
 				E4F2978E1E0913830003D6EB /* GGCollectionViewFlowLayout.swift in Sources */,
+				E4686A311E10C35A008125AF /* GGIndicatorView.swift in Sources */,
 				E4F297981E0A93780003D6EB /* GGCalendarWeekdayView.swift in Sources */,
 				E4F2979A1E0B82F20003D6EB /* GGTopCalendarBar.swift in Sources */,
 				E4F2977B1E08FCB60003D6EB /* ViewController.swift in Sources */,

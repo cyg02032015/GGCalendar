@@ -13,7 +13,7 @@ class GGCalendarCollectionCell: UICollectionViewCell {
     lazy var dayLabel: UILabel = {
        let label = UILabel()
         label.textAlignment = .center
-        label.backgroundColor = .green
+        label.backgroundColor = .clear
         return label
     }()
     
@@ -32,15 +32,6 @@ class GGCalendarCollectionCell: UICollectionViewCell {
         case .LastMonth: self.dayLabel.textColor = .gray
         case .ThisMonth: self.dayLabel.textColor = .black
         case .NextMonth: self.dayLabel.textColor = .gray
-        }
-        var componens = DateComponents()
-        componens.day = Int(item.day)
-        componens.month = Int(item.month)
-        componens.year = Int(item.year)
-        if GGCalendarTool.isToday(components: componens) {
-            dayLabel.backgroundColor = .gray
-        } else {
-            dayLabel.backgroundColor = .white
         }
     }
     
